@@ -1,0 +1,10 @@
+package ch20.oracle.sec05;
+
+public class BoardWithFileInsertExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

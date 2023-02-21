@@ -1,0 +1,8 @@
+package ch20.oracle.sec09.exam01;
+
+//page 927
+//import lombok.Data;
+
+public class User {
+
+}

@@ -1,0 +1,29 @@
+package ch20.oracle.sec05;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+
+//board table에 data를 저장하는 예시
+public class BoardWithFileInsertExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Connection conn = null;
+		try {
+			//jdbc driver register
+			Class.forName("oracle.jdbc.OracleDriver");
+			
+			//connect
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "owen", "12345");
+			
+			System.out.println("connection successful");
+			
+		};
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,58 @@
+package ch20.oracle.sec05;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+//행 삽입 예시
+public class UserInsertExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		try {
+			//jdbc driver register
+			Class.forName("oracle.jdbc.OracleDriver");
+			//driver 고정
+			conn = DriverManager.getConnection(
+					"jdbc:oracle:thin:@localhost:1521:xe",
+					"owen",
+					"12345"
+					);
+			
+			String sql = "" + "insert into users (userid, username, userpassword, userage, useremail)" + "values(?, ?, ?, ?, ?)";
+			
+			//PreparedStatement 얻기 및 값 지정
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "winter");
+			pstmt.setString(2, "한겨울");
+			pstmt.setString(3, "12345");
+			pstmt.setInt(4, 25);
+			pstmt.setString(5, "winter@mycompany.com");
+			
+			//SQL execute
+			int rows = pstmt.executeUpdate();
+			System.out.println("저장된 행 수: "+rows);
+			
+			//close PreparedStatement
+			pstmt.close();
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if(conn != null) {
+				try {
+					//disconnect
+					conn.close();
+				} catch(SQLException e){
+					
+				}
+			}
+		}
+		
+	}
+
+}

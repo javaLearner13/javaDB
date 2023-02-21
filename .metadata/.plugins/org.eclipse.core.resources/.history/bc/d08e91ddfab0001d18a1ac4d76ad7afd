@@ -1,0 +1,10 @@
+package ch20.oracle.sec08;
+
+public class BoardDeleteExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
